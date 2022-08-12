@@ -1,0 +1,7 @@
+server:
+  port: 8080
+
+kafka:
+  host: localhost:9092
+  topic: test_topic
+  groupId: testGroupId
