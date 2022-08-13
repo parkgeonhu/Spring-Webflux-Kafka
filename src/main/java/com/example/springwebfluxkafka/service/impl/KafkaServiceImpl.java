@@ -20,26 +20,8 @@ import java.util.function.Consumer;
 @RequiredArgsConstructor
 public class KafkaServiceImpl implements KafkaService {
     private final KafkaSender<String, Object> kafkaSender;
-    private final ReceiverOptions<String, Object> receiverOptions;
-
-    private Disposable disposable;
-
-//    @PostConstruct
-//    public void init() {    // Consumer를 열어놓음
-//        disposable = KafkaReceiver.create(receiverOptions).receive()
-//                .doOnNext(processReceivedData())
-//                .doOnError(e -> {
-//                    System.out.println("Kafka read error");
-//                    init();     // 에러 발생 시, consumer가 종료되고 재시작할 방법이 없기 때문에 error시 재시작
-//                })
-//                .subscribe();
-//    }
-
     @PreDestroy
     public void destroy() {
-        if (disposable != null) {
-            disposable.dispose();
-        }
         kafkaSender.close();
     }
 
