@@ -1,14 +1,13 @@
 package com.example.springwebfluxkafka.service.impl;
 
-import com.example.springwebfluxkafka.model.exception.KafkaException;
 import com.example.springwebfluxkafka.service.KafkaService;
 import com.example.springwebfluxkafka.service.MessageService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
+
 
 @Service
 @RequiredArgsConstructor
@@ -33,7 +32,8 @@ public class MessageServiceImpl implements MessageService {
                         }
                     });
         } catch (Exception e) {
-            return Mono.error(KafkaException.SEND_ERROR);
+            return Mono.error(e);
         }
+
     }
 }
