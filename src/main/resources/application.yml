@@ -5,3 +5,7 @@ kafka:
   host: localhost:9092
   topic: test_topic
   groupId: testGroupId
+
+logging:
+  level:
+    com.example: DEBUG

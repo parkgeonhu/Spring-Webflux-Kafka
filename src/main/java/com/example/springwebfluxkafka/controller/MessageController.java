@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/message")
+@RequestMapping("/messages")
 @RequiredArgsConstructor
 public class MessageController {
 
